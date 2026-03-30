@@ -23,12 +23,12 @@ public class Inicio {
         System.out.println("A nota 1 é: "+ media);
 
             if(media>=7){
-                System.out.println("Pabens paso");
+                System.out.println("Parabéns passou");
             }
             else if(media>=4)
-                System.out.println("recupela la");
+                System.out.println("recuperação");
             else
-                System.out.println("Não paso");
+                System.out.println("Não passou");
         
         entrada.close();
     }
