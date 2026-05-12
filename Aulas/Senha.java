@@ -1,3 +1,5 @@
+import java.util.scanner
+
 public class Senha {
     public static void main (String[] args){
 
@@ -5,9 +7,8 @@ public class Senha {
         int tentativa = 0;
 
         while(tentativa != senha){
-
             tentativa = 1234;
-
+            if (tentativa = )
             System.out.println("Tentando acessar...");
         }
         System.out.println("Acesso Liberado!");
