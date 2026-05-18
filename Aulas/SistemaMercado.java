@@ -8,87 +8,93 @@ class Produto {
     int quantidade;
 
     public Produto(String nome, double preco, int quantidade) {
-
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
-
     }
 
     public void exibir() {
         System.out.println("Nome: " + nome);
         System.out.println("Preço: " + preco);
-        System.out.println("Quantidade" + quantidade);
-        System.out.println("----------------------");
-
+        System.out.println("Quantidade: " + quantidade);
     }
-}
-
-public static void cadastrarProduto() {
-    sc.nextline();
-    System.out.println("Nome do Produto: ");
-    // texto
-    String nome = sc.nextline();
-
-    System.out.println("Preço: ");
-    // numero com virgula
-    double preco = sc.nextDouble();
-
-    System.out.println("Quantidade: ");
-    // numero inteiro
-    int quantidade = sc.nextInt();
-
-    Produto p = new Produto(nome, preco, quantidade);
-    listarProdutos.add(p);
-
-    System.out.println("Produto cadastrado com Sucesso!");
-
-}
-
-public static int menu() {
-    System.out.println("\n======= Mercado do Luquinha =======");
-    System.out.println("1 - Cadastrar Produto");
-    System.out.println("2 - Lista de Produtos");
-    System.out.println("3 - Sair");
-    System.out.println("Escolha uma Opção: ");
-
 }
 
 public class SistemaMercado {
+
     static Scanner sc = new Scanner(System.in);
-    static ArrayList<Produto> listarProdutos = new Arraylist<>();
+    static ArrayList<Produto> listarProdutos = new ArrayList<>();
+
+    public static void cadastrarProduto() {
+
+        sc.nextLine();
+
+        System.out.print("Nome do Produto: ");
+        String nome = sc.nextLine();
+
+        System.out.print("Preço: ");
+        double preco = sc.nextDouble();
+
+        System.out.print("Quantidade: ");
+        int quantidade = sc.nextInt();
+
+        Produto p = new Produto(nome, preco, quantidade);
+
+        listarProdutos.add(p);
+
+        System.out.println("Produto cadastrado!");
+    }
+
+    public static void listarProdutos() {
+
+        if (listarProdutos.isEmpty()) {
+            System.out.println("Nenhum produto cadastrado!");
+            return;
+        }
+
+        for (Produto p : listarProdutos) {
+            p.exibir();
+        }
+    }
+
+    public static int menu() {
+
+        System.out.println("\n===== Mercado =====");
+        System.out.println("1 - Cadastrar");
+        System.out.println("2 - Listar");
+        System.out.println("3 - Sair");
+
+        return sc.nextInt();
+    }
 
     public static void main(String[] args) {
+
         int opcao;
 
         do {
+
             opcao = menu();
+
             switch (opcao) {
 
-                case 1 -> cadastrarProduto();
+                case 1:
+                    cadastrarProduto();
+                    break;
 
-                case 2 -> listarProdutos();
+                case 2:
+                    listarProdutos();
+                    break;
 
-                case 3 -> System.out.println("Saindo do Sistema...");
+                case 3:
+                    System.out.println("Saindo...");
+                    break;
 
-                default -> System.out.println("Opção Inválida!");
+                default:
+                    System.out.println("Opção inválida!");
             }
 
         } while (opcao != 3);
+
         sc.close();
     }
-
-}
-
-public static void listarProdutos() {
-    if (listarProdutos.isEmpty()) {
-        System.out.println("Nenhum Produto Cadastrado!");
-
-    }
-    System.out.println("\n=== Lista de Produtos ===");
-    for (Produto p : listarProdutos) {
-        p.exibir();
-
-    }
-
 }
