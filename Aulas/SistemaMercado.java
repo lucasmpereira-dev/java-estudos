@@ -14,9 +14,11 @@ class Produto {
     }
 
     public void exibir() {
+        System.out.println("===============================");
         System.out.println("Nome: " + nome);
         System.out.println("Preço: " + preco);
         System.out.println("Quantidade: " + quantidade);
+        System.out.println("===============================");
     }
 }
 
@@ -52,6 +54,7 @@ public class SistemaMercado {
             return;
         }
 
+        System.out.println("\n===== Lista de Produtos =====");
         for (Produto p : listarProdutos) {
             p.exibir();
         }
@@ -59,10 +62,11 @@ public class SistemaMercado {
 
     public static int menu() {
 
-        System.out.println("\n===== Mercado =====");
+        System.out.println("\n===== Mercado do Luquinha =====");
         System.out.println("1 - Cadastrar");
         System.out.println("2 - Listar");
         System.out.println("3 - Sair");
+        System.out.println("===============================");
 
         return sc.nextInt();
     }
